@@ -1,0 +1,1922 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gadanki Toll Plaza</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f6f8;
+    color: #333;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #0b3d2e;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd700;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.55)
+        ),
+        url("toll-plaza.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    padding: 30px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.button {
+    display: inline-block;
+    background: #ffd700;
+    color: #222;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: white;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 60px 8%;
+}
+
+section h2 {
+    text-align: center;
+    color: #0b3d2e;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: white;
+    text-align: center;
+}
+
+.about p {
+    max-width: 850px;
+    margin: auto;
+    font-size: 17px;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.service-card h3 {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    background: white;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-container img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.info-box h3 {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   STAFF / MANPOWER
+========================= */
+
+.staff-section {
+    background: #f4f6f8;
+}
+
+.staff-container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    overflow-x: auto;
+}
+
+.staff-description {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+
+/* STAFF TABLE */
+
+#staffTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+#staffTable th,
+#staffTable td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+#staffTable th {
+    background: #0b3d2e;
+    color: white;
+}
+
+#staffTable td:first-child {
+    text-align: left;
+    font-weight: bold;
+}
+
+#staffTable input {
+    width: 90px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#staffTable input:focus {
+    outline: none;
+    border: 2px solid #0b3d2e;
+}
+
+
+/* TOTAL COLUMN */
+
+.staff-total {
+    font-weight: bold;
+    color: #0b3d2e;
+}
+
+
+/* FOOTER TOTAL */
+
+#staffTable tfoot th {
+    background: #145a43;
+    color: white;
+    font-size: 16px;
+}
+
+
+/* STAFF BUTTONS */
+
+.staff-buttons {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.staff-button {
+    padding: 11px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    background: #0b3d2e;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.staff-button:hover {
+    background: #145a43;
+}
+
+.staff-clear-button {
+    background: #b22222;
+}
+
+.staff-clear-button:hover {
+    background: #8b0000;
+}
+
+#staffStatus {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    background: #e8f0ed;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact-container p {
+    margin: 12px;
+    font-size: 18px;
+}
+
+
+/* =========================
+   EDIT SECTION
+========================= */
+
+.edit-section {
+    background: #0b3d2e;
+    color: white;
+}
+
+.edit-section h2 {
+    color: white;
+}
+
+.edit-panel {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    color: #333;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.edit-description {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.edit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.edit-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.edit-card h3 {
+    color: #0b3d2e;
+    margin-bottom: 12px;
+}
+
+.edit-card input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.edit-buttons {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.save-button {
+    background: #0b3d2e;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background: #145a43;
+}
+
+.reset-button {
+    background: white;
+    color: #333;
+    border: 1px solid #888;
+    padding: 13px 25px;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.status {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0b3d2e;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .services,
+    .gallery-container,
+    .info-container,
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-container {
+        padding: 10px;
+    }
+
+    #staffTable th,
+    #staffTable td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #staffTable input {
+        width: 70px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        Gadanki Toll Plaza
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#staff">Staff</a>
+
+        <a href="#contact">Contact</a>
+
+        <a href="#edit">Edit Website</a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Gadanki Toll Plaza
+        </h1>
+
+        <p>
+            Welcome to Gadanki Toll Plaza
+        </p>
+
+        <a href="#about" class="button">
+            Explore Website
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <h2>
+        About Gadanki Toll Plaza
+    </h2>
+
+    <p>
+        Gadanki Toll Plaza provides toll collection and highway
+        services to road users. Our aim is to provide efficient,
+        safe and convenient service to travelers.
+    </p>
+
+    <br>
+
+    <p>
+        This website provides information about Gadanki Toll Plaza,
+        services, facilities, photographs and contact details.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section id="services">
+
+    <h2>
+        Our Services
+    </h2>
+
+    <div class="services">
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚗
+            </div>
+
+            <h3>
+                Toll Collection
+            </h3>
+
+            <p>
+                Efficient toll collection facilities for vehicles.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🛣️
+            </div>
+
+            <h3>
+                Highway Support
+            </h3>
+
+            <p>
+                Assistance and support for highway users.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Safety
+            </h3>
+
+            <p>
+                Safety and responsible highway operations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+    <h2>
+        Photo Gallery
+    </h2>
+
+    <div class="gallery-container">
+
+        <img
+            id="gallery1"
+            src="toll-plaza.jpg"
+            alt="Gadanki Toll Plaza">
+
+        <img
+            id="gallery2"
+            src="toll-booth.jpg"
+            alt="Toll Booth">
+
+        <img
+            id="gallery3"
+            src="office.jpg"
+            alt="Gadanki Toll Plaza Office">
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section>
+
+    <h2>
+        Plaza Information
+    </h2>
+
+    <div class="info-container">
+
+        <div class="info-box">
+
+            <h3>
+                📍 Address
+            </h3>
+
+            <p>
+
+                Gadanki Toll Plaza<br>
+
+                Address: NH140, Gadanki, Panapakam, 517112<br>
+
+                Highway Stretch: NH140
+                (Chittoor to Mallavaram corridor)<br>
+
+                District / Region:
+                Chittoor / Tirupati district,<br>
+
+                Andhra Pradesh, India
+
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <h3>
+                📞 Contact
+            </h3>
+
+            <p>
+                Phone: +91 8130006307
+            </p>
+
+            <p>
+                Email: gadankihit@gmail.com
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <h3>
+                ⏰ Working Hours
+            </h3>
+
+            <p>
+                Toll Plaza Operations: 24 Hours
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <h3>
+                🚘 Facilities
+            </h3>
+
+            <p>
+                Toll lanes, vehicle assistance,
+                safety facilities and highway support.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STAFF / MANPOWER DETAILS
+===================================================== -->
+
+<section class="staff-section" id="staff">
+
+    <h2>
+        Staff / Manpower Details
+    </h2>
+
+    <div class="staff-container">
+
+        <p class="staff-description">
+
+            Enter the BOQ and Actual number of staff.
+            Total will be calculated automatically as
+            <strong>BOQ + Actual</strong>.
+
+        </p>
+
+
+        <!-- STAFF TABLE -->
+
+        <table id="staffTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Designation
+                    </th>
+
+                    <th>
+                        BOQ
+                    </th>
+
+                    <th>
+                        Actual
+                    </th>
+
+                    <th>
+                        Total
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <!-- PROJECT MANAGER -->
+
+                <tr>
+
+                    <td>
+                        Project Manager
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- TOLL SHIFT IN-CHARGE -->
+
+                <tr>
+
+                    <td>
+                        Toll Shift In-charge
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- TOLL COLLECTOR -->
+
+                <tr>
+
+                    <td>
+                        Toll Collector
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- LANE ASSISTANT -->
+
+                <tr>
+
+                    <td>
+                        Lane Assistant
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- TRAFFIC MARSHAL -->
+
+                <tr>
+
+                    <td>
+                        Traffic Marshal
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- ARMED GUARDS -->
+
+                <tr>
+
+                    <td>
+                        Armed Guards
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- CASHIER -->
+
+                <tr>
+
+                    <td>
+                        Cashier
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- ELECTRICIAN -->
+
+                <tr>
+
+                    <td>
+                        Electrician
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- SAFAIWALA -->
+
+                <tr>
+
+                    <td>
+                        Safaiwala
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- MALI -->
+
+                <tr>
+
+                    <td>
+                        Mali
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+                <!-- PEON -->
+
+                <tr>
+
+                    <td>
+                        Peon
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="boq"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td>
+                        <input
+                            type="number"
+                            min="0"
+                            value="0"
+                            class="actual"
+                            oninput="calculateStaff()">
+                    </td>
+
+                    <td class="staff-total">
+                        0
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+
+            <!-- GRAND TOTAL -->
+
+            <tfoot>
+
+                <tr>
+
+                    <th>
+                        Grand Total Staff
+                    </th>
+
+                    <th id="totalBOQ">
+                        0
+                    </th>
+
+                    <th id="totalActual">
+                        0
+                    </th>
+
+                    <th id="totalStaff">
+                        0
+                    </th>
+
+                </tr>
+
+            </tfoot>
+
+        </table>
+
+
+        <!-- BUTTONS -->
+
+        <div class="staff-buttons">
+
+            <button
+                class="staff-button"
+                onclick="calculateStaff()">
+
+                Calculate
+
+            </button>
+
+
+            <button
+                class="staff-button"
+                onclick="saveStaff()">
+
+                💾 Save Staff Details
+
+            </button>
+
+
+            <button
+                class="staff-button staff-clear-button"
+                onclick="clearStaff()">
+
+                Clear
+
+            </button>
+
+        </div>
+
+
+        <p id="staffStatus"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <h2>
+        Contact Us
+    </h2>
+
+    <div class="contact-container">
+
+        <p>
+            <strong>Gadanki Toll Plaza</strong>
+        </p>
+
+        <p>
+            📍 Gadanki, Andhra Pradesh, India
+        </p>
+
+        <p>
+            📞 +91 8130006307
+        </p>
+
+        <p>
+            ✉️ gadankinhit@gmail.com
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EDIT WEBSITE
+========================= -->
+
+<section class="edit-section" id="edit">
+
+    <div class="edit-panel">
+
+        <h2>
+            Edit Website
+        </h2>
+
+        <p class="edit-description">
+
+            Select an image from your computer and click
+            "Save Changes".
+
+        </p>
+
+
+        <div class="edit-grid">
+
+
+            <!-- BACKGROUND -->
+
+            <div class="edit-card">
+
+                <h3>
+                    🖼️ Change Background Image
+                </h3>
+
+                <input
+                    type="file"
+                    id="backgroundImage"
+                    accept="image/*">
+
+            </div>
+
+
+            <!-- GALLERY 1 -->
+
+            <div class="edit-card">
+
+                <h3>
+                    📷 Change Gallery Image 1
+                </h3>
+
+                <input
+                    type="file"
+                    id="galleryImage1"
+                    accept="image/*">
+
+            </div>
+
+
+            <!-- GALLERY 2 -->
+
+            <div class="edit-card">
+
+                <h3>
+                    📷 Change Gallery Image 2
+                </h3>
+
+                <input
+                    type="file"
+                    id="galleryImage2"
+                    accept="image/*">
+
+            </div>
+
+
+            <!-- GALLERY 3 -->
+
+            <div class="edit-card">
+
+                <h3>
+                    📷 Change Gallery Image 3
+                </h3>
+
+                <input
+                    type="file"
+                    id="galleryImage3"
+                    accept="image/*">
+
+            </div>
+
+
+        </div>
+
+
+        <div class="edit-buttons">
+
+            <button
+                class="save-button"
+                onclick="saveImages()">
+
+                💾 Save Changes
+
+            </button>
+
+
+            <button
+                class="reset-button"
+                onclick="resetImages()">
+
+                Reset Photos
+
+            </button>
+
+        </div>
+
+
+        <p
+            class="status"
+            id="status">
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Gadanki Toll Plaza. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   IMAGE FUNCTIONS
+===================================================== */
+
+
+/* READ IMAGE */
+
+function readImage(file, callback) {
+
+    if (!file) {
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+        callback(event.target.result);
+
+    };
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* SAVE IMAGES */
+
+function saveImages() {
+
+    const background =
+        document.getElementById("backgroundImage").files[0];
+
+    const image1 =
+        document.getElementById("galleryImage1").files[0];
+
+    const image2 =
+        document.getElementById("galleryImage2").files[0];
+
+    const image3 =
+        document.getElementById("galleryImage3").files[0];
+
+
+    let numberOfImages = 0;
+    let completedImages = 0;
+
+
+    function completed() {
+
+        completedImages++;
+
+        if (completedImages === numberOfImages) {
+
+            document.getElementById("status").innerHTML =
+                "✅ Images saved successfully!";
+
+        }
+
+    }
+
+
+    /* BACKGROUND */
+
+    if (background) {
+
+        numberOfImages++;
+
+        readImage(background, function(image) {
+
+            localStorage.setItem(
+                "gadankiBackground",
+                image
+            );
+
+            document.querySelector(".hero").style.backgroundImage =
+                "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('" +
+                image +
+                "')";
+
+            completed();
+
+        });
+
+    }
+
+
+    /* GALLERY 1 */
+
+    if (image1) {
+
+        numberOfImages++;
+
+        readImage(image1, function(image) {
+
+            localStorage.setItem(
+                "gadankiGallery1",
+                image
+            );
+
+            document.getElementById("gallery1").src =
+                image;
+
+            completed();
+
+        });
+
+    }
+
+
+    /* GALLERY 2 */
+
+    if (image2) {
+
+        numberOfImages++;
+
+        readImage(image2, function(image) {
+
+            localStorage.setItem(
+                "gadankiGallery2",
+                image
+            );
+
+            document.getElementById("gallery2").src =
+                image;
+
+            completed();
+
+        });
+
+    }
+
+
+    /* GALLERY 3 */
+
+    if (image3) {
+
+        numberOfImages++;
+
+        readImage(image3, function(image) {
+
+            localStorage.setItem(
+                "gadankiGallery3",
+                image
+            );
+
+            document.getElementById("gallery3").src =
+                image;
+
+            completed();
+
+        });
+
+    }
+
+
+    if (numberOfImages === 0) {
+
+        document.getElementById("status").innerHTML =
+            "⚠️ Please select an image first.";
+
+    }
+
+}
+
+
+/* LOAD SAVED IMAGES */
+
+function loadSavedImages() {
+
+    const background =
+        localStorage.getItem("gadankiBackground");
+
+    const image1 =
+        localStorage.getItem("gadankiGallery1");
+
+    const image2 =
+        localStorage.getItem("gadankiGallery2");
+
+    const image3 =
+        localStorage.getItem("gadankiGallery3");
+
+
+    if (background) {
+
+        document.querySelector(".hero").style.backgroundImage =
+            "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('" +
+            background +
+            "')";
+
+    }
+
+
+    if (image1) {
+
+        document.getElementById("gallery1").src =
+            image1;
+
+    }
+
+
+    if (image2) {
+
+        document.getElementById("gallery2").src =
+            image2;
+
+    }
+
+
+    if (image3) {
+
+        document.getElementById("gallery3").src =
+            image3;
+
+    }
+
+}
+
+
+/* RESET IMAGES */
+
+function resetImages() {
+
+    localStorage.removeItem("gadankiBackground");
+    localStorage.removeItem("gadankiGallery1");
+    localStorage.removeItem("gadankiGallery2");
+    localStorage.removeItem("gadankiGallery3");
+
+
+    document.querySelector(".hero").style.backgroundImage =
+        "linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('toll-plaza.jpg')";
+
+
+    document.getElementById("gallery1").src =
+        "toll-plaza.jpg";
+
+    document.getElementById("gallery2").src =
+        "toll-booth.jpg";
+
+    document.getElementById("gallery3").src =
+        "office.jpg";
+
+
+    document.getElementById("status").innerHTML =
+        "✅ Original photos restored.";
+
+}
+
+
+/* =====================================================
+   STAFF FUNCTIONS
+===================================================== */
+
+
+/*
+   CALCULATE STAFF
+
+   Total for each designation =
+   BOQ + Actual
+*/
+
+function calculateStaff() {
+
+    const rows =
+        document.querySelectorAll("#staffTable tbody tr");
+
+
+    let totalBOQ = 0;
+    let totalActual = 0;
+    let totalStaff = 0;
+
+
+    rows.forEach(function(row) {
+
+
+        const boq =
+            Number(
+                row.querySelector(".boq").value
+            ) || 0;
+
+
+        const actual =
+            Number(
+                row.querySelector(".actual").value
+            ) || 0;
+
+
+        /* BOQ + ACTUAL */
+
+        const total =
+            boq + actual;
+
+
+        /* Show row total */
+
+        row.querySelector(".staff-total").textContent =
+            total;
+
+
+        /* Grand totals */
+
+        totalBOQ += boq;
+
+        totalActual += actual;
+
+        totalStaff += total;
+
+
+    });
+
+
+    /* Show grand totals */
+
+    document.getElementById("totalBOQ").textContent =
+        totalBOQ;
+
+
+    document.getElementById("totalActual").textContent =
+        totalActual;
+
+
+    document.getElementById("totalStaff").textContent =
+        totalStaff;
+
+}
+
+
+/* =====================================================
+   SAVE STAFF DETAILS
+===================================================== */
+
+function saveStaff() {
+
+    const rows =
+        document.querySelectorAll("#staffTable tbody tr");
+
+
+    const staffData = [];
+
+
+    rows.forEach(function(row) {
+
+
+        const designation =
+            row.cells[0].textContent.trim();
+
+
+        const boq =
+            row.querySelector(".boq").value;
+
+
+        const actual =
+            row.querySelector(".actual").value;
+
+
+        staffData.push({
+
+            designation: designation,
+
+            boq: boq,
+
+            actual: actual
+
+        });
+
+
+    });
+
+
+    localStorage.setItem(
+        "gadankiStaffData",
+        JSON.stringify(staffData)
+    );
+
+
+    calculateStaff();
+
+
+    document.getElementById("staffStatus").textContent =
+        "✅ Staff details saved successfully.";
+
+}
+
+
+/* =====================================================
+   LOAD STAFF DETAILS
+===================================================== */
+
+function loadStaff() {
+
+    const saved =
+        localStorage.getItem("gadankiStaffData");
+
+
+    if (!saved) {
+
+        calculateStaff();
+
+        return;
+
+    }
+
+
+    const staffData =
+        JSON.parse(saved);
+
+
+    const rows =
+        document.querySelectorAll("#staffTable tbody tr");
+
+
+    rows.forEach(function(row, index) {
+
+
+        if (staffData[index]) {
+
+
+            row.querySelector(".boq").value =
+                staffData[index].boq;
+
+
+            row.querySelector(".actual").value =
+                staffData[index].actual;
+
+        }
+
+    });
+
+
+    calculateStaff();
+
+}
+
+
+/* =====================================================
+   CLEAR STAFF DETAILS
+===================================================== */
+
+function clearStaff() {
+
+    const rows =
+        document.querySelectorAll("#staffTable tbody tr");
+
+
+    rows.forEach(function(row) {
+
+        row.querySelector(".boq").value = 0;
+
+        row.querySelector(".actual").value = 0;
+
+    });
+
+
+    localStorage.removeItem(
+        "gadankiStaffData"
+    );
+
+
+    calculateStaff();
+
+
+    document.getElementById("staffStatus").textContent =
+        "Staff details cleared.";
+
+}
+
+
+/* =====================================================
+   START WEBSITE
+===================================================== */
+
+loadSavedImages();
+
+loadStaff();
+
+
+</script>
+
+
+</body>
+</html>
+```
